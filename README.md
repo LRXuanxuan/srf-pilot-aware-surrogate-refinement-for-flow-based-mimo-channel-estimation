@@ -9,7 +9,7 @@ Official code release for the paper:
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/python-3.9%2B-blue)
-[![CI](https://github.com/LRXuanxuan/srf-pilot-aware-flow/actions/workflows/ci.yml/badge.svg)](https://github.com/LRXuanxuan/srf-pilot-aware-flow/actions/workflows/ci.yml)
+[![CI](https://github.com/LRXuanxuan/srf-pilot-aware-surrogate-refinement-for-flow-based-mimo-channel-estimation/actions/workflows/ci.yml/badge.svg)](https://github.com/LRXuanxuan/srf-pilot-aware-surrogate-refinement-for-flow-based-mimo-channel-estimation/actions/workflows/ci.yml)
 
 ---
 
@@ -96,8 +96,8 @@ See [`docs/METHOD.md`](docs/METHOD.md) for the equations and
 ## Installation
 
 ```bash
-git clone https://github.com/LRXuanxuan/srf-pilot-aware-flow.git
-cd srf-pilot-aware-flow
+git clone https://github.com/LRXuanxuan/srf-pilot-aware-surrogate-refinement-for-flow-based-mimo-channel-estimation.git
+cd srf-pilot-aware-surrogate-refinement-for-flow-based-mimo-channel-estimation
 
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate

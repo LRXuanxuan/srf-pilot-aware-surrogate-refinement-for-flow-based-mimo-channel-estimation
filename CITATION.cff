@@ -28,8 +28,8 @@ authors:
     affiliation: "National Key Laboratory of Wireless Communications, University of Electronic Science and Technology of China (UESTC), Chengdu 611731, China"
 type: software
 license: MIT
-repository-code: "https://github.com/LRXuanxuan/srf-pilot-aware-flow"
-url: "https://github.com/LRXuanxuan/srf-pilot-aware-flow"
+repository-code: "https://github.com/LRXuanxuan/srf-pilot-aware-surrogate-refinement-for-flow-based-mimo-channel-estimation"
+url: "https://github.com/LRXuanxuan/srf-pilot-aware-surrogate-refinement-for-flow-based-mimo-channel-estimation"
 keywords:
   - "MIMO channel estimation"
   - "limited pilot overhead"

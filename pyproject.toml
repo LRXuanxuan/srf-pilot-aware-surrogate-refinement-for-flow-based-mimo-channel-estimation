@@ -3,7 +3,7 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "srf-pilot-aware-flow"
+name = "srf-pilot-aware-surrogate-refinement"
 version = "0.1.0"
 description = "Official code for SRF: Pilot-Aware Surrogate Refinement for Flow-Based MIMO Channel Estimation (IEEE GLOBECOM 2026)"
 readme = "README.md"
@@ -30,7 +30,7 @@ dependencies = [
 dev = ["pytest>=7.0"]
 
 [project.urls]
-Repository = "https://github.com/LRXuanxuan/srf-pilot-aware-flow"
+Repository = "https://github.com/LRXuanxuan/srf-pilot-aware-surrogate-refinement-for-flow-based-mimo-channel-estimation"
 
 [tool.setuptools.packages.find]
 where = ["src"]
