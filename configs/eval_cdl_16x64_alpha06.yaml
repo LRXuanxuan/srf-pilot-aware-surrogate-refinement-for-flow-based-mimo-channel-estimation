@@ -1,0 +1,44 @@
+# Evaluation configuration -- reproduces Table I of the paper.
+#
+# Usage:
+#   python scripts/evaluate.py --config configs/eval_cdl_16x64_alpha06.yaml \
+#       --checkpoint /path/to/best_model.pt \
+#       --samplers srf_p srf --output-json results/table1_srf.json
+#
+# The same data contract as training is used (docs/DATA.md).
+run_name: eval_cdl_16x64_alpha06
+
+data:
+  data_dir: data/channel_data
+  num_rx: 16
+  num_tx: 64
+  num_pilots: 38             # alpha = 0.6
+  num_workers: 4
+
+test:
+  cdl_types: [A, B, C, D]
+  snr_db: [-10, -5, 0, 5, 10, 15, 20, 25, 30]
+  batch_size: 100
+  seed: 42
+  # Optional cap on test batches per CDL type (null = use all realizations).
+  max_batches: null
+
+sampler:
+  gm_output_mode: sample     # mean | sample
+  pbg_iters: 1               # K = 1
+  pbg_step: 0.10             # step scale (c in code)
+  pbg_w: 1.0                 # w_pbg = 1
+  pbg_rho: 0.08              # rho = 0.08 (full SRF only)
+  pbg_noise_coef: 1.0
+  pbg_eps: 1.0e-6
+  pbg_step_max: 0.5
+  # Reverse-step schedule exponents (fixed in the paper).
+  lambda_exp: 2
+  beta_exp: 2
+  # FLOWER baseline options (legacy FLOWER matches the RC-Flow step budget by
+  # default, i.e. up to ~5000 reverse steps, which is very slow; set
+  # total_steps to a smaller value for a quick comparison).
+  flower:
+    total_steps: null
+    mmse_num_samples: 8
+    match_rcflow_budget: true

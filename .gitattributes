@@ -1,0 +1,17 @@
+# Normalize line endings in the repository; check out with platform defaults.
+* text=auto
+
+*.py text
+*.md text
+*.yml text
+*.yaml text
+*.cff text
+*.toml text
+*.txt text
+*.m text
+
+*.png binary
+*.jpg binary
+*.pdf binary
+*.pt binary
+*.mat binary

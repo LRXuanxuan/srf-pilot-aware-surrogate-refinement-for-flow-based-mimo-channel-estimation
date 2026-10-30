@@ -1,0 +1,46 @@
+# SRF (DPR + PBG) training configuration -- paper main setting.
+#
+# Paper: "SRF: Pilot-Aware Surrogate Refinement for Flow-Based MIMO Channel
+# Estimation", IEEE GLOBECOM 2026.
+#
+# The CDL channel data are NOT included in this repository; see docs/DATA.md.
+# Point data.data_dir at a directory containing channel_CDL-{A,B,C,D}.mat with
+# variables H_train / H_val / H_test of shape (N_r, N_t, N_samples).
+run_name: srf_cdl_16x64_alpha06
+
+data:
+  data_dir: data/channel_data
+  dataset_type: Mixed        # A | B | C | D | Mixed (Mixed = train on A+B+C+D)
+  num_rx: 16
+  num_tx: 64
+  num_pilots: 38             # alpha = N_p / N_t = 0.6 (paper main setting)
+  snr_db: 1                  # placeholder used only to build the dataset object
+  num_workers: 4
+
+model:
+  model_channels: 32
+  channel_mult: [1, 2, 4]
+  num_res_blocks: 2
+  gm_num_components: 1       # single-Gaussian conditional velocity (paper Sec. III-B)
+  gm_min_logstd: -3.5
+  gm_max_logstd: 0.5
+  gm_logstd_layers: 2
+
+training:
+  objective: gm_nll          # gm_nll == DPR finite-transition NLL (paper eq. 24)
+  transition_ratio: 0.5      # r = 0.5 in all experiments
+  time_mu: 0.0               # t ~ sigmoid(N(mu, sigma^2)); legacy runs used 0.0
+  time_sigma: 1.0
+  snr_min_db: -10.0
+  snr_max_db: 30.0
+  snr_step_db: 5.0
+  batch_size: 512
+  epochs: 2400
+  lr: 1.0e-4
+  weight_decay: 0.0
+  amp: bf16                  # bf16 | fp16 | none
+  grad_clip: 1.0
+  val_every: 10              # epochs between validation passes
+  seed: 42
+  device: auto               # auto | cpu | cuda
+  output_dir: outputs/srf_cdl_16x64_alpha06

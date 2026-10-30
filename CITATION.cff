@@ -1,0 +1,56 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper below."
+title: "SRF: Pilot-Aware Surrogate Refinement for Flow-Based MIMO Channel Estimation"
+abstract: >-
+  Accurate channel state information (CSI) is essential for massive MIMO, but
+  limited pilots make channel recovery underdetermined. We propose
+  surrogate-refined flow (SRF), a pilot-aware flow-based estimator that couples
+  a learned channel prior with a closed-form pilot-consistency update.
+  Distribution-aware prior refinement (DPR) improves the prior-side
+  clean-channel center, and posterior bridge guidance (PBG) corrects
+  post-reembedding pilot mismatch in the pilot-observable space while
+  preserving prior-controlled null components.
+authors:
+  - family-names: "Li"
+    given-names: "Ruixuan"
+    affiliation: "National Key Laboratory of Wireless Communications, University of Electronic Science and Technology of China (UESTC), Chengdu 611731, China"
+  - family-names: "Wang"
+    given-names: "Shuai"
+    affiliation: "National Key Laboratory of Wireless Communications, University of Electronic Science and Technology of China (UESTC), Chengdu 611731, China"
+  - family-names: "Li"
+    given-names: "Lingxiang"
+    affiliation: "National Key Laboratory of Wireless Communications, University of Electronic Science and Technology of China (UESTC), Chengdu 611731, China"
+  - family-names: "Chen"
+    given-names: "Zhi"
+    affiliation: "National Key Laboratory of Wireless Communications, University of Electronic Science and Technology of China (UESTC), Chengdu 611731, China"
+  - family-names: "Wang"
+    given-names: "Hongwei"
+    affiliation: "National Key Laboratory of Wireless Communications, University of Electronic Science and Technology of China (UESTC), Chengdu 611731, China"
+type: software
+license: MIT
+repository-code: "https://github.com/LRXuanxuan/srf-pilot-aware-flow"
+url: "https://github.com/LRXuanxuan/srf-pilot-aware-flow"
+keywords:
+  - "MIMO channel estimation"
+  - "limited pilot overhead"
+  - "flow matching"
+  - "generative prior"
+  - "Bayesian inference"
+preferred-citation:
+  type: conference-paper
+  title: "SRF: Pilot-Aware Surrogate Refinement for Flow-Based MIMO Channel Estimation"
+  authors:
+    - family-names: "Li"
+      given-names: "Ruixuan"
+    - family-names: "Wang"
+      given-names: "Shuai"
+    - family-names: "Li"
+      given-names: "Lingxiang"
+    - family-names: "Chen"
+      given-names: "Zhi"
+    - family-names: "Wang"
+      given-names: "Hongwei"
+  conference:
+    name: "IEEE Global Communications Conference (GLOBECOM)"
+  year: 2026
+  address: "Macau, China"

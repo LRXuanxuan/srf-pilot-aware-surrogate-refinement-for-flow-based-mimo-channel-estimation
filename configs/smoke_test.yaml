@@ -1,0 +1,66 @@
+# Tiny smoke-test configuration (CPU-friendly, synthetic data).
+#
+# Generate the synthetic data first:
+#   python scripts/generate_synthetic_data.py --output-dir data/synthetic --num-rx 8 --num-tx 16 --num-samples 32
+# Then train for a few epochs:
+#   python scripts/train.py --config configs/smoke_test.yaml
+# and evaluate:
+#   python scripts/evaluate.py --config configs/smoke_test.yaml \
+#       --checkpoint outputs/smoke_test/best_model.pt --samplers srf --max-batches 1
+run_name: smoke_test
+
+data:
+  data_dir: data/synthetic
+  dataset_type: Mixed
+  num_rx: 8
+  num_tx: 16
+  num_pilots: 10
+  snr_db: 1
+  num_workers: 0
+
+model:
+  model_channels: 8
+  channel_mult: [1, 2, 4]
+  num_res_blocks: 1
+  gm_num_components: 1
+  gm_min_logstd: -3.5
+  gm_max_logstd: 0.5
+  gm_logstd_layers: 2
+
+training:
+  objective: gm_nll
+  transition_ratio: 0.5
+  time_mu: 0.0
+  time_sigma: 1.0
+  snr_min_db: -10.0
+  snr_max_db: 30.0
+  snr_step_db: 5.0
+  batch_size: 8
+  epochs: 2
+  lr: 1.0e-4
+  weight_decay: 0.0
+  amp: none
+  grad_clip: 1.0
+  val_every: 1
+  seed: 42
+  device: cpu
+  output_dir: outputs/smoke_test
+
+test:
+  cdl_types: [A]
+  snr_db: [0, 10]
+  batch_size: 4
+  seed: 42
+  max_batches: 1
+
+sampler:
+  gm_output_mode: mean
+  pbg_iters: 1
+  pbg_step: 0.10
+  pbg_w: 1.0
+  pbg_rho: 0.08
+  pbg_noise_coef: 1.0
+  pbg_eps: 1.0e-6
+  pbg_step_max: 0.5
+  lambda_exp: 2
+  beta_exp: 2

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "srf-pilot-aware-flow"
+version = "0.1.0"
+description = "Official code for SRF: Pilot-Aware Surrogate Refinement for Flow-Based MIMO Channel Estimation (IEEE GLOBECOM 2026)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+  { name = "Ruixuan Li" },
+  { name = "Shuai Wang" },
+  { name = "Lingxiang Li" },
+  { name = "Zhi Chen" },
+  { name = "Hongwei Wang" },
+]
+keywords = ["MIMO channel estimation", "flow matching", "generative prior", "pilot overhead"]
+dependencies = [
+  "torch>=2.1",
+  "numpy>=1.24,<3",
+  "tqdm>=4.65",
+  "PyYAML>=6.0",
+  "h5py>=3.8",
+  "hdf5storage>=0.1.19",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Repository = "https://github.com/LRXuanxuan/srf-pilot-aware-flow"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

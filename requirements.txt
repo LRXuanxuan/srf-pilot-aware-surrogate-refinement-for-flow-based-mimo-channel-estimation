@@ -1,0 +1,12 @@
+# Core dependencies (see also pyproject.toml)
+torch>=2.1
+numpy>=1.24,<3
+tqdm>=4.65
+PyYAML>=6.0
+
+# .mat channel data loading (legacy MATLAB v7.3 files)
+h5py>=3.8
+hdf5storage>=0.1.19
+
+# Test-only dependency (optional)
+# pytest>=7.0

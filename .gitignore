@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+
+# PyTorch checkpoints / logs
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+
+# Experiment outputs
+outputs/
+runs/
+results/*.json
+results/*.csv
+wandb/
+tensorboard/
+
+# Data (generated / downloaded separately)
+data/
+*.mat
+*.h5
+*.hdf5
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
